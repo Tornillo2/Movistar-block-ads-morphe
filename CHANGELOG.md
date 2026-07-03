@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.2...v1.0.3) (2026-07-03)
+
+### 🚀 Updated App Support
+
+* Simplify execution logic in blockAdsPatch by removing unused instructions ([9ba11e0](https://github.com/Tornillo2/movistar-block-ads-morphe/commit/9ba11e0f2f31fcb971c042d00fe839024b73fbd9))
+
 ## [1.0.2](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.1...v1.0.2) (2026-07-03)
 
 ### 🚀 Updated App Support
