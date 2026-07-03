@@ -31,7 +31,7 @@ val blockAdsPatch = bytecodePatch(
                 if-eqz v0, :cond_continue
                 return-void
                 :cond_continue
-            """
+            """.trimIndent()
         )
     }
 }
