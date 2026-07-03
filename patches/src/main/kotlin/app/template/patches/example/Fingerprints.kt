@@ -1,7 +1,6 @@
 package app.template.patches.example
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 object InitializePlayerFingerprint : Fingerprint(
@@ -14,10 +13,11 @@ object InitializePlayerFingerprint : Fingerprint(
         "Lcom/movistarplus/androidtv/models/PlayerDataModel;",
         "Ljava/lang/String;"
     ),
-    filters = listOf(
-        string("initializePlayer")
-    ),
-    custom = { _, classDef ->
-        classDef.type == "Lcom/movistarplus/androidtv/player/PlayerTV;"
+    // Match by method name instead of a string literal constant in the bytecode.
+    // "initializePlayer" is the method name, not an embedded string constant,
+    // so `string(...)` would never find it.
+    custom = { methodDef, classDef ->
+        methodDef.name == "initializePlayer" &&
+            classDef.type == "Lcom/movistarplus/androidtv/player/PlayerTV;"
     }
 )

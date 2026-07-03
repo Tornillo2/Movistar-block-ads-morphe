@@ -4,7 +4,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.COMPATIBILITY_MOVISTAR
 
-private const val EXTENSION_CLASS = "Lapp/template/extension/ExamplePatch;"
+// Full Dalvik descriptor for the extension class.
+// Package: app.template.extension.extension  →  path: app/template/extension/extension
+private const val EXTENSION_CLASS = "Lapp/template/extension/extension/ExamplePatch;"
 
 @Suppress("unused")
 val blockAdsPatch = bytecodePatch(
@@ -17,10 +19,14 @@ val blockAdsPatch = bytecodePatch(
     extendWith("extensions/extension.mpe")
 
     execute {
+        // Dalvik register layout for a non-static method with signature:
+        //   (Uri, long, boolean, PlayerDataModel, String)V
+        // p0 = this, p1 = Uri, p2+p3 = long (2 slots), p4 = boolean,
+        // p5 = PlayerDataModel, p6 = String
         InitializePlayerFingerprint.method.addInstructions(
             0,
             """
-                invoke-static {p4}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
+                invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
                 move-result v0
                 if-eqz v0, :cond_continue
                 return-void
