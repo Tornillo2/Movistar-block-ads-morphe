@@ -8,10 +8,12 @@ pluginManagement {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/MorpheApp/registry")
             credentials {
+                // Usa propiedades/vars; si faltan, Gradle fallará con mensaje claro.
                 username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("GITHUB_ACTOR")
                 password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("GITHUB_TOKEN")
             }
         }
+
         maven { url = uri("https://jitpack.io") }
     }
 }
