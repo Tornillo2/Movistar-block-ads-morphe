@@ -20,11 +20,11 @@ val blockAdsPatch = bytecodePatch(
         InitializePlayerFingerprint.method.addInstructions(
             0,
             """
-                invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
+                invoke-static {p4}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
                 move-result v0
-                if-eqz v0, :cond_skip_ad
+                if-eqz v0, :cond_continue
                 return-void
-                :cond_skip_ad
+                :cond_continue
             """
         )
     }
