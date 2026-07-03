@@ -23,12 +23,11 @@ val blockAdsPatch = bytecodePatch(
         //   (Uri, long, boolean, PlayerDataModel, String)V
         // p0 = this, p1 = Uri, p2+p3 = long (2 slots), p4 = boolean,
         // p5 = PlayerDataModel, p6 = String
+        // Use a normalized smali string to avoid lexer errors caused by multiline indentation.
         InitializePlayerFingerprint.method.addInstructions(
             0,
-            """
-                invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
-                move-result v0
-            """.trimIndent()
+            "invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z\n" +
+                "move-result v0\n"
         )
     }
 }
