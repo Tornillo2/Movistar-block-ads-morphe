@@ -28,9 +28,6 @@ val blockAdsPatch = bytecodePatch(
             """
                 invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
                 move-result v0
-                if-eqz v0, :cond_continue
-                return-void
-                :cond_continue
             """.trimIndent()
         )
     }
