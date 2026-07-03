@@ -104,7 +104,6 @@ jobs:
             3. Select the **Block Ads** patch and tap *Patch*.
           files: |
             patches/build/libs/*.mpp
-            extensions/extension/build/outputs/**/*.mpe
             patches-list.json
           fail_on_unmatched_files: true
           generate_release_notes: true
