@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.1...v1.0.2) (2026-07-03)
+
+### 🚀 Updated App Support
+
+* Update version to 1.0.2 in gradle.properties and refactor smali string in ExamplePatch.kt ([b9a4f52](https://github.com/Tornillo2/movistar-block-ads-morphe/commit/b9a4f524f0707cc4ab582a5a26dffd5b599d3f19))
+
 ## [1.0.1](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.0...v1.0.1) (2026-07-03)
 
 ### 🚀 Updated App Support
