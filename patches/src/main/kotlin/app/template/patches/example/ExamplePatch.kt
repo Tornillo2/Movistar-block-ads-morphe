@@ -19,7 +19,6 @@ val blockAdsPatch = bytecodePatch(
     extendWith("extensions/extension.mpe")
 
     execute {
-        // Sanity check: if even this fails, the inline smali format / insertion point is not accepted.
         InitializePlayerFingerprint.method.addInstructions(
             0,
             "nop"
