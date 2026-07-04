@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.3...v1.0.4) (2026-07-04)
+
+### 🚀 Updated App Support
+
+* Remove sanity check comment from blockAdsPatch execution ([42eb3ef](https://github.com/Tornillo2/movistar-block-ads-morphe/commit/42eb3ef72b5b273ce59f8f840d83b83f2e7ec2f6))
+
 ## [1.0.3](https://github.com/Tornillo2/movistar-block-ads-morphe/compare/v1.0.2...v1.0.3) (2026-07-03)
 
 ### 🚀 Updated App Support
