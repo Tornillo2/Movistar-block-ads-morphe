@@ -19,10 +19,17 @@ val blockAdsPatch = bytecodePatch(
     extendWith("extensions/extension.mpe")
 
     execute {
-        InitializePlayerFingerprint.method.addInstructions(
-            0,
-            "invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z"
-        )
-    }
+    InitializePlayerFingerprint.method.addInstructionsWithLabels(
+        0,
+        """
+            invoke-static {p5}, $EXTENSION_CLASS;->shouldBlockAndSkip(Ljava/lang/Object;)Z
+            move-result v0
+            if-eqz v0, :continue
+            return-void
+            :continue
+            nop
+        """
+    )
+}
 }
 
